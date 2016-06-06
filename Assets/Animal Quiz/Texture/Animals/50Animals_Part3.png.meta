@@ -1,0 +1,457 @@
+fileFormatVersion: 2
+guid: 51bc22d4fed0944439c0dec201f18f6a
+timeCreated: 1458730110
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 50Animals_Part3_0
+    21300002: 50Animals_Part3_1
+    21300004: 50Animals_Part3_2
+    21300006: 50Animals_Part3_3
+    21300008: 50Animals_Part3_4
+    21300010: 50Animals_Part3_5
+    21300012: 50Animals_Part3_6
+    21300014: 50Animals_Part3_7
+    21300016: 50Animals_Part3_8
+    21300018: 50Animals_Part3_9
+    21300020: 50Animals_Part3_10
+    21300022: 50Animals_Part3_11
+    21300024: 50Animals_Part3_12
+    21300026: 50Animals_Part3_13
+    21300028: 50Animals_Part3_14
+    21300030: 50Animals_Part3_15
+    21300032: 50Animals_Part3_16
+    21300034: 50Animals_Part3_17
+    21300036: 50Animals_Part3_18
+    21300038: 50Animals_Part3_19
+    21300040: 50Animals_Part3_20
+    21300042: 50Animals_Part3_21
+    21300044: 50Animals_Part3_22
+    21300046: 50Animals_Part3_23
+    21300048: 50Animals_Part3_24
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: 50Animals_Part3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 880
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_1
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 880
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_2
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 880
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_3
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 880
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_4
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 880
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 660
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_6
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 660
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_7
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 660
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_8
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 660
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_9
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 660
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 440
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_11
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 440
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_12
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 440
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_13
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 440
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_14
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 440
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_16
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 220
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_17
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 220
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_18
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 220
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_19
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 220
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_21
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_22
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_23
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 0
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    - name: 50Animals_Part3_24
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 0
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -110, y: 110}
+        - {x: -110, y: -110}
+        - {x: 110, y: -110}
+        - {x: 110, y: 110}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
