@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class Level1 : MonoBehaviour {
 
 	public Question[] questions;
 	private static List<Question> unansweredQuestions;
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour {
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
-			}
+		}
 
 		StartCoroutine (TransitionToNextQuestion ());
 	}
