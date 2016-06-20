@@ -44,7 +44,7 @@ public class switchTime : MonoBehaviour {
 //				yield return new WaitForSeconds(0.2f);
 //			}
 //		}
-	float timeLeft = 15.0f;
+	float timeLeft = 3.0f;
 
 	public Text text;
 
