@@ -48,13 +48,13 @@ public class GameManager : MonoBehaviour {
 
 		factText.text = currentQuestion.fact;
 
-		if (currentQuestion.isTrue) {
-			trueAnserText.text = "CORRECT";
-			falseAnswerText.text = "WRONG";
-		} else {
-			trueAnserText.text = "WRONG";
-			falseAnswerText.text = "CORRECT";
-		}
+//		if (currentQuestion.isTrue) {
+//			trueAnserText.text = "CORRECT";
+//			falseAnswerText.text = "WRONG";
+//		} else {
+//			trueAnserText.text = "WRONG";
+//			falseAnswerText.text = "CORRECT";
+//		}
 	}
 
 	IEnumerator TransitionToNextQuestion ()

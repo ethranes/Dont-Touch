@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public class Level2 : MonoBehaviour {
+public class Level4 : MonoBehaviour {
 
 	public Question[] questions;
 	private static List<Question> unansweredQuestions;
@@ -71,7 +71,7 @@ public class Level2 : MonoBehaviour {
 		animator.SetTrigger ("True");
 		if (currentQuestion.isTrue) {
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Level 3");
+			SceneManager.LoadScene ("SceneSelector");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -85,7 +85,7 @@ public class Level2 : MonoBehaviour {
 		animator.SetTrigger ("False");
 		if (!currentQuestion.isTrue) {
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Level 3");
+			SceneManager.LoadScene ("SceneSelector");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong

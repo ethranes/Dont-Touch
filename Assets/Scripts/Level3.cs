@@ -48,13 +48,13 @@ public class Level3 : MonoBehaviour {
 
 		factText.text = currentQuestion.fact;
 
-		if (currentQuestion.isTrue) {
-			trueAnserText.text = "CORRECT";
-			falseAnswerText.text = "WRONG";
-		} else {
-			trueAnserText.text = "WRONG";
-			falseAnswerText.text = "CORRECT";
-		}
+//		if (currentQuestion.isTrue) {
+//			trueAnserText.text = "CORRECT";
+//			falseAnswerText.text = "WRONG";
+//		} else {
+//			trueAnserText.text = "WRONG";
+//			falseAnswerText.text = "CORRECT";
+//		}
 	}
 
 	IEnumerator TransitionToNextQuestion ()
@@ -71,7 +71,7 @@ public class Level3 : MonoBehaviour {
 		animator.SetTrigger ("True");
 		if (currentQuestion.isTrue) {
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("SelectLevel");
+			SceneManager.LoadScene ("SceneSelector");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -85,7 +85,7 @@ public class Level3 : MonoBehaviour {
 		animator.SetTrigger ("False");
 		if (!currentQuestion.isTrue) {
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("SelectLevel");
+			SceneManager.LoadScene ("SceneSelector");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
