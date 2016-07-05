@@ -71,7 +71,7 @@ public class Level3 : MonoBehaviour {
 		animator.SetTrigger ("True");
 		if (currentQuestion.isTrue) {
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Win");
+			SceneManager.LoadScene ("SelectLevel");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -85,7 +85,7 @@ public class Level3 : MonoBehaviour {
 		animator.SetTrigger ("False");
 		if (!currentQuestion.isTrue) {
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Win");
+			SceneManager.LoadScene ("SelectLevel");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
