@@ -10,13 +10,13 @@ public class GameManager : MonoBehaviour {
 	public Question[] questions;
 	private static List<Question> unansweredQuestions;
 
-	private int userScore = 0;
+	//private int userScore = 0;
 	public Text scoreText;
 
 	private Question currentQuestion;
 
 	[SerializeField]
-	private Text factText;
+	private Text factText = null;
 
 	[SerializeField]
 	private Text trueAnserText;
@@ -25,20 +25,51 @@ public class GameManager : MonoBehaviour {
 	private Text falseAnswerText;
 
 	[SerializeField]
-	private Animator animator;
+	private Animator animator = null;
 
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
 
+	public int score = 10;
+
+	private int LevelAmount = 3; //this needs to be updated if the level count changes
+	private int CurrentLevel;
+
 	void Start ()
 	{
-
+		//PlayerPrefs.SetInt ("Level2", 1); 
+		CheckCurrentLevel ();
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) 
 		{
 			unansweredQuestions = questions.ToList<Question>();
 		}
 
 		SetCurrentQuestion();
+	}
+
+	void CheckCurrentLevel()
+	{
+		for (int i = 1; i < LevelAmount; i++) 
+		{
+			if (SceneManager.GetActiveScene().name == "Level" + i) 
+			{
+				CurrentLevel = i;
+				SaveMyGame ();
+			}
+		}
+	}
+
+	void SaveMyGame()
+	{
+		int NextLevel = CurrentLevel + 1;
+		if (NextLevel < LevelAmount) {
+			PlayerPrefs.SetInt ("Level" + NextLevel.ToString (), 1);//unlock next level
+			PlayerPrefs.SetInt ("Level" + CurrentLevel.ToString () + "_score", score);
+		} 
+		else 
+		{
+			PlayerPrefs.SetInt ("Level" + CurrentLevel.ToString () + "_score", score);
+		}
 	}
 
 	void SetCurrentQuestion ()
@@ -71,7 +102,7 @@ public class GameManager : MonoBehaviour {
 		animator.SetTrigger ("True");
 		if (currentQuestion.isTrue) {
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Level 2");
+			SceneManager.LoadScene ("Level1.2");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -85,7 +116,7 @@ public class GameManager : MonoBehaviour {
 		animator.SetTrigger ("False");
 		if (!currentQuestion.isTrue) {
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Level 2");
+			SceneManager.LoadScene ("Level1.2");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong

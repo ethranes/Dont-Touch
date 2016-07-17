@@ -23,10 +23,10 @@ namespace MaterialUI
 		public float animationDuration = 0.75f;
 
 		[SerializeField] private RectTransform parentRect;
-		[SerializeField] private Text placeholderText;
-		[SerializeField] private Text inputText;
-		[SerializeField] private Text displayText;
-		[SerializeField] private Image activeLine;
+		[SerializeField] private Text placeholderText = null;
+		[SerializeField] private Text inputText = null;
+		[SerializeField] private Text displayText = null;
+		[SerializeField] private Image activeLine = null;
 
 		RectTransform textRect;
 		RectTransform displayTextRect;

@@ -39,11 +39,11 @@ namespace MaterialUI
 
 
 		[HideInInspector]
-		[SerializeField] private Image checkImage;
+		[SerializeField] private Image checkImage = null;
 		[HideInInspector]
-		[SerializeField] private Image frameImage;
+		[SerializeField] private Image frameImage = null;
 		[HideInInspector]
-		[SerializeField] private Text text;
+		[SerializeField] private Text text = null;
 
 		private RectTransform checkRectTransform;
 		private CanvasGroup frameCanvasGroup;

@@ -10,22 +10,22 @@ public class Level1 : MonoBehaviour {
 	public Question[] questions;
 	private static List<Question> unansweredQuestions;
 
-	private int userScore = 0;
+	//private int userScore = 0;
 	public Text scoreText;
 
 	private Question currentQuestion;
 
 	[SerializeField]
-	private Text factText;
+	private Text factText = null;
 
 	[SerializeField]
-	private Text trueAnserText;
+	private Text trueAnserText = null;
 
 	[SerializeField]
-	private Text falseAnswerText;
+	private Text falseAnswerText = null;
 
 	[SerializeField]
-	private Animator animator;
+	private Animator animator = null;
 
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;

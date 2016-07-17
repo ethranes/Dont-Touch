@@ -22,7 +22,7 @@ namespace MaterialUI
 
 		private bool lastInteractableState;
 
-		[SerializeField] private CanvasGroup shadows;
+		[SerializeField] private CanvasGroup shadows = null;
 
 		private void OnEnable()
 		{

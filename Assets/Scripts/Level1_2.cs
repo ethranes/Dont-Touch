@@ -5,18 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public class Level3 : MonoBehaviour {
+public class Level1_2 : MonoBehaviour {
 
 	public Question[] questions;
 	private static List<Question> unansweredQuestions;
 
-	private int userScore = 0;
+	//private int userScore = 0;
 	public Text scoreText;
 
 	private Question currentQuestion;
 
 	[SerializeField]
-	private Text factText;
+	private Text factText = null;
 
 	[SerializeField]
 	private Text trueAnserText;
@@ -25,7 +25,7 @@ public class Level3 : MonoBehaviour {
 	private Text falseAnswerText;
 
 	[SerializeField]
-	private Animator animator;
+	private Animator animator = null;
 
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
@@ -71,7 +71,7 @@ public class Level3 : MonoBehaviour {
 		animator.SetTrigger ("True");
 		if (currentQuestion.isTrue) {
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("SceneSelector");
+			SceneManager.LoadScene ("Level1.3");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -85,7 +85,7 @@ public class Level3 : MonoBehaviour {
 		animator.SetTrigger ("False");
 		if (!currentQuestion.isTrue) {
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("SceneSelector");
+			SceneManager.LoadScene ("Level1.3");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
