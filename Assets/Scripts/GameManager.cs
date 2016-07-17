@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour {
 	{
 		int NextLevel = CurrentLevel + 1;
 		if (NextLevel < LevelAmount) {
-			PlayerPrefs.SetInt ("Level" + NextLevel.ToString (), 1);//unlock next level
+			PlayerPrefs.SetInt ("Level" + NextLevel.ToString(), 1);//unlock next level
 			PlayerPrefs.SetInt ("Level" + CurrentLevel.ToString () + "_score", score);
 		} 
 		else 
