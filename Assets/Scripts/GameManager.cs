@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour {
 	public Question[] questions;
 	private static List<Question> unansweredQuestions;
 
-	//private int userScore = 0;
 	public Text scoreText;
 
 	private Question currentQuestion;
@@ -32,12 +31,12 @@ public class GameManager : MonoBehaviour {
 
 	public int score = 10;
 
-	private int LevelAmount = 3; //this needs to be updated if the level count changes
+	private int LevelAmount = 7; //this needs to be updated if the level count changes
 	private int CurrentLevel;
 
 	void Start ()
 	{
-		//PlayerPrefs.SetInt ("Level2", 1); 
+		PlayerPrefs.SetInt ("Level2", 0); 
 		CheckCurrentLevel ();
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) 
 		{
@@ -63,7 +62,7 @@ public class GameManager : MonoBehaviour {
 	{
 		int NextLevel = CurrentLevel + 1;
 		if (NextLevel < LevelAmount) {
-			PlayerPrefs.SetInt ("Level" + NextLevel.ToString(), 1);//unlock next level
+			PlayerPrefs.SetInt ("Level" + NextLevel.ToString(), 0);//unlock next level
 			PlayerPrefs.SetInt ("Level" + CurrentLevel.ToString () + "_score", score);
 		} 
 		else 
@@ -79,13 +78,7 @@ public class GameManager : MonoBehaviour {
 
 		factText.text = currentQuestion.fact;
 
-//		if (currentQuestion.isTrue) {
-//			trueAnserText.text = "CORRECT";
-//			falseAnswerText.text = "WRONG";
-//		} else {
-//			trueAnserText.text = "WRONG";
-//			falseAnswerText.text = "CORRECT";
-//		}
+
 	}
 
 	IEnumerator TransitionToNextQuestion ()

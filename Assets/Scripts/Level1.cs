@@ -13,6 +13,8 @@ public class Level1 : MonoBehaviour {
 	//private int userScore = 0;
 	public Text scoreText;
 
+	private int m_timeRemaining = 10;
+
 	private Question currentQuestion;
 
 	[SerializeField]
@@ -71,6 +73,10 @@ public class Level1 : MonoBehaviour {
 		animator.SetTrigger ("True");
 		if (currentQuestion.isTrue) {
 			Debug.Log ("Correct");
+			var GO = new GameObject("State");
+			var ISS = GO.AddComponent<TimeController>();
+			ISS.TimeRemaining = m_timeRemaining; // with m_timeRemaining being whatever way you're keeping the remaining time
+			DontDestroyOnLoad(GO);
 			SceneManager.LoadScene ("Level 2");
 		} else {
 			Debug.Log ("Wrong!");
@@ -85,6 +91,7 @@ public class Level1 : MonoBehaviour {
 		animator.SetTrigger ("False");
 		if (!currentQuestion.isTrue) {
 			Debug.Log ("Correct");
+
 			SceneManager.LoadScene ("Level 2");
 		} else {
 			Debug.Log ("Wrong!");

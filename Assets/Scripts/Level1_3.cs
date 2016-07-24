@@ -30,13 +30,14 @@ public class Level1_3 : MonoBehaviour {
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
 
-//	public int score = 10;
-//
-//	private int LevelAmount = 3; //this needs to be updated if the level count changes
-//	private int CurrentLevel;
+	public int score = 10000;
+
+	private int LevelAmount = 7; //this needs to be updated if the level count changes
+	private int CurrentLevel;
 
 	void Start ()
 	{
+		PlayerPrefs.SetInt ("Level2", 1); 
 //		CheckCurrentLevel ();
 		//PlayerPrefs.SetInt ("Level2", 1); 
 		//PlayerPrefs.SetInt ("Level1_score", score);
@@ -48,30 +49,30 @@ public class Level1_3 : MonoBehaviour {
 		SetCurrentQuestion();
 	}
 
-//	void CheckCurrentLevel()
-//	{
-//		for (int i = 1; i < LevelAmount; i++) 
-//		{
-//			if (Application.loadedLevelName == "Level" + i) 
-//			{
-//				CurrentLevel = i;
-//				SaveMyGame ();
-//			}
-//		}
-//	}
-//
-//	void SaveMyGame()
-//	{
-//		int NextLevel = CurrentLevel + 1;
-//		if (NextLevel < LevelAmount) {
-//			PlayerPrefs.SetInt ("Level" + NextLevel.ToString (), 1);//unlock next level
-//			PlayerPrefs.SetInt ("Level" + CurrentLevel.ToString () + "_score", score);
-//		} 
-//		else 
-//		{
-//			PlayerPrefs.SetInt ("Level" + CurrentLevel.ToString () + "_score", score);
-//		}
-//	}
+	void CheckCurrentLevel()
+	{
+		for (int i = 1; i < LevelAmount; i++) 
+		{
+			if (SceneManager.GetActiveScene().name == "Level" + i) 
+			{
+				CurrentLevel = i;
+				SaveMyGame ();
+			}
+		}
+	}
+
+	void SaveMyGame()
+	{
+		int NextLevel = CurrentLevel + 1;
+		if (NextLevel < LevelAmount) {
+			PlayerPrefs.SetInt ("Level" + NextLevel.ToString (), 1);//unlock next level
+			PlayerPrefs.SetInt ("Level" + CurrentLevel.ToString () + "_score", score);
+		} 
+		else 
+		{
+			PlayerPrefs.SetInt ("Level" + CurrentLevel.ToString () + "_score", score);
+		}
+	}
 
 	void SetCurrentQuestion ()
 	{
