@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public class Level1_2 : MonoBehaviour {
+public class Level1_2: MonoBehaviour {
 
 	public Question[] questions;
-	private static List<Question> unansweredQuestions;
+	private static List < Question > unansweredQuestions;
 
 	//private int userScore = 0;
 	public Text scoreText;
@@ -35,92 +35,81 @@ public class Level1_2 : MonoBehaviour {
 	private int LevelAmount = 7; //this needs to be updated if the level count changes
 	private int CurrentLevel;
 
-	void Start ()
-	{
-		PlayerPrefs.SetInt ("Level2", 0); 
-		if (unansweredQuestions == null || unansweredQuestions.Count == 0) 
-		{
-			unansweredQuestions = questions.ToList<Question>();
+	void Start() {
+		PlayerPrefs.SetInt("Level2", 0);
+		if (unansweredQuestions == null || unansweredQuestions.Count == 0) {
+			unansweredQuestions = questions.ToList < Question > ();
 		}
 
 		SetCurrentQuestion();
 	}
 
-	void CheckCurrentLevel()
-	{
-		for (int i = 1; i < LevelAmount; i++) 
-		{
-			if (SceneManager.GetActiveScene().name == "Level" + i) 
-			{
+	void CheckCurrentLevel() {
+		for (int i = 1; i < LevelAmount; i++) {
+			if (SceneManager.GetActiveScene().name == "Level" + i) {
 				CurrentLevel = i;
-				SaveMyGame ();
+				SaveMyGame();
 			}
 		}
 	}
 
-	void SaveMyGame()
-	{
+	void SaveMyGame() {
 		int NextLevel = CurrentLevel + 1;
 		if (NextLevel < LevelAmount) {
-			PlayerPrefs.SetInt ("Level" + NextLevel.ToString(), 0);//unlock next level
-			PlayerPrefs.SetInt ("Level" + CurrentLevel.ToString () + "_score", score);
-		} 
-		else 
-		{
-			PlayerPrefs.SetInt ("Level" + CurrentLevel.ToString () + "_score", score);
+			PlayerPrefs.SetInt("Level" + NextLevel.ToString(), 0); //unlock next level
+			PlayerPrefs.SetInt("Level" + CurrentLevel.ToString() + "_score", score);
+		} else {
+			PlayerPrefs.SetInt("Level" + CurrentLevel.ToString() + "_score", score);
 		}
 	}
 
-	void SetCurrentQuestion ()
-	{
+	void SetCurrentQuestion() {
 		int randomQuestionIndex = Random.Range(0, unansweredQuestions.Count);
 		currentQuestion = unansweredQuestions[randomQuestionIndex];
 
 		factText.text = currentQuestion.fact;
 
-//		if (currentQuestion.isTrue) {
-//			trueAnserText.text = "CORRECT";
-//			falseAnswerText.text = "WRONG";
-//		} else {
-//			trueAnserText.text = "WRONG";
-//			falseAnswerText.text = "CORRECT";
-//		}
+		//		if (currentQuestion.isTrue) {
+		//			trueAnserText.text = "CORRECT";
+		//			falseAnswerText.text = "WRONG";
+		//		} else {
+		//			trueAnserText.text = "WRONG";
+		//			falseAnswerText.text = "CORRECT";
+		//		}
 	}
 
-	IEnumerator TransitionToNextQuestion ()
-	{
+	IEnumerator TransitionToNextQuestion() {
 		unansweredQuestions.Remove(currentQuestion);
 
-		yield return new WaitForSeconds (timeBetweenQuestions);
+		yield
+		return new WaitForSeconds(timeBetweenQuestions);
 
-		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
-	public void UserSelectTrue ()
-	{
-		animator.SetTrigger ("True");
+	public void UserSelectTrue() {
+		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
-			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Level1.3");
+			Debug.Log("Correct");
+			SceneManager.LoadScene("Level1.3");
 		} else {
-			Debug.Log ("Wrong!");
-			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
+			Debug.Log("Wrong!");
+			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
 		}
 
-		StartCoroutine (TransitionToNextQuestion ());
+		StartCoroutine(TransitionToNextQuestion());
 	}
 
-	public void UserSelectFalse ()
-	{
-		animator.SetTrigger ("False");
+	public void UserSelectFalse() {
+		animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
-			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Level1.3");
+			Debug.Log("Correct");
+			SceneManager.LoadScene("Level1.3");
 		} else {
-			Debug.Log ("Wrong!");
-			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
+			Debug.Log("Wrong!");
+			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
 		}
 
-		StartCoroutine (TransitionToNextQuestion ());
+		StartCoroutine(TransitionToNextQuestion());
 	}
 }
