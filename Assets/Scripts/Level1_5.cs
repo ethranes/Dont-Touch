@@ -4,48 +4,36 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
-using System;
 
-public class GameManager: MonoBehaviour {
+public class Level1_5: MonoBehaviour {
 
 	public Question[] questions;
 	private static List < Question > unansweredQuestions;
-
 	public Text scoreText;
-
 	private Question currentQuestion;
-
 	[SerializeField]
 	private Text factText = null;
-
 	[SerializeField]
 	private Text trueAnserText;
-
 	[SerializeField]
 	private Text falseAnswerText;
-
 	[SerializeField]
 	private Animator animator = null;
-
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
-
-	public int score = 10;
-
+	public int score = 10000;
 	private int LevelAmount = 7; //this needs to be updated if the level count changes
 	private int CurrentLevel;
 
 	void Start() {
-		PlayerPrefs.SetInt("Level2", 0);
+		//PlayerPrefs.SetInt("Level2", 1);
 		CheckCurrentLevel();
+
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) {
 			unansweredQuestions = questions.ToList < Question > ();
 		}
 
 		SetCurrentQuestion();
-
-		GlobalCountDown.StartCountDown(TimeSpan.FromMinutes(1));
-
 	}
 
 	void CheckCurrentLevel() {
@@ -60,7 +48,7 @@ public class GameManager: MonoBehaviour {
 	void SaveMyGame() {
 		int NextLevel = CurrentLevel + 1;
 		if (NextLevel < LevelAmount) {
-			PlayerPrefs.SetInt("Level" + NextLevel.ToString(), 0); //unlock next level
+			PlayerPrefs.SetInt("Level" + NextLevel.ToString(), 1); //unlock next level
 			PlayerPrefs.SetInt("Level" + CurrentLevel.ToString() + "_score", score);
 		} else {
 			PlayerPrefs.SetInt("Level" + CurrentLevel.ToString() + "_score", score);
@@ -68,12 +56,9 @@ public class GameManager: MonoBehaviour {
 	}
 
 	void SetCurrentQuestion() {
-		int randomQuestionIndex = UnityEngine.Random.Range(0, unansweredQuestions.Count);
+		int randomQuestionIndex = Random.Range(0, unansweredQuestions.Count);
 		currentQuestion = unansweredQuestions[randomQuestionIndex];
-
 		factText.text = currentQuestion.fact;
-
-
 	}
 
 	IEnumerator TransitionToNextQuestion() {
@@ -85,11 +70,12 @@ public class GameManager: MonoBehaviour {
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
-	public void UserSelectTrue() {
+	public void UserSelectTrue() {		
 		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
-			Debug.Log("Correct");
-			SceneManager.LoadScene("Level1.2");
+			PlayerPrefs.SetInt("Level2", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			Debug.Log("Correct");		
+			SceneManager.LoadScene("sceneSelectBeta");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -101,8 +87,9 @@ public class GameManager: MonoBehaviour {
 	public void UserSelectFalse() {
 		animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level2", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");
-			SceneManager.LoadScene("Level1.2");
+			SceneManager.LoadScene("sceneSelectBeta");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong

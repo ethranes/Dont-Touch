@@ -48,7 +48,7 @@ public class Level1_3: MonoBehaviour {
 	void SaveMyGame() {
 		int NextLevel = CurrentLevel + 1;
 		if (NextLevel < LevelAmount) {
-			PlayerPrefs.SetInt("Level" + NextLevel.ToString(), 1); //unlock next level
+			PlayerPrefs.SetInt("Level" + NextLevel.ToString(), 0); //unlock next level
 			PlayerPrefs.SetInt("Level" + CurrentLevel.ToString() + "_score", score);
 		} else {
 			PlayerPrefs.SetInt("Level" + CurrentLevel.ToString() + "_score", score);
@@ -73,9 +73,9 @@ public class Level1_3: MonoBehaviour {
 	public void UserSelectTrue() {		
 		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
-			PlayerPrefs.SetInt("Level2", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			PlayerPrefs.SetInt("Level2", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");		
-			SceneManager.LoadScene("sceneSelectBeta");
+			SceneManager.LoadScene("Level1.4");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -87,9 +87,9 @@ public class Level1_3: MonoBehaviour {
 	public void UserSelectFalse() {
 		animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
-			PlayerPrefs.SetInt("Level2", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			PlayerPrefs.SetInt("Level2", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");
-			SceneManager.LoadScene("sceneSelectBeta");
+			SceneManager.LoadScene("Level1.4");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
