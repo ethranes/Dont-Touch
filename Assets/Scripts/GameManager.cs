@@ -10,42 +10,30 @@ public class GameManager: MonoBehaviour {
 
 	public Question[] questions;
 	private static List < Question > unansweredQuestions;
-
 	public Text scoreText;
-
 	private Question currentQuestion;
-
 	[SerializeField]
 	private Text factText = null;
-
 	[SerializeField]
 	private Text trueAnserText;
-
 	[SerializeField]
 	private Text falseAnswerText;
-
 	[SerializeField]
 	private Animator animator = null;
-
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
-
 	public int score = 10;
-
 	private int LevelAmount = 7; //this needs to be updated if the level count changes
 	private int CurrentLevel;
 
 	void Start() {
+		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (8));//set the amount of time that the player has to finish the level
 		PlayerPrefs.SetInt("Level2", 0);
 		CheckCurrentLevel();
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) {
 			unansweredQuestions = questions.ToList < Question > ();
 		}
-
 		SetCurrentQuestion();
-
-		GlobalCountDown.StartCountDown(TimeSpan.FromMinutes(1));
-
 	}
 
 	void CheckCurrentLevel() {
@@ -70,18 +58,13 @@ public class GameManager: MonoBehaviour {
 	void SetCurrentQuestion() {
 		int randomQuestionIndex = UnityEngine.Random.Range(0, unansweredQuestions.Count);
 		currentQuestion = unansweredQuestions[randomQuestionIndex];
-
 		factText.text = currentQuestion.fact;
-
-
 	}
 
 	IEnumerator TransitionToNextQuestion() {
 		unansweredQuestions.Remove(currentQuestion);
-
 		yield
 		return new WaitForSeconds(timeBetweenQuestions);
-
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
@@ -94,7 +77,6 @@ public class GameManager: MonoBehaviour {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
 		}
-
 		StartCoroutine(TransitionToNextQuestion());
 	}
 
@@ -109,5 +91,11 @@ public class GameManager: MonoBehaviour {
 		}
 
 		StartCoroutine(TransitionToNextQuestion());
+	}
+
+	void Update ()
+	{
+		if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
+			SceneManager.LoadScene("Lose");  //if the timer reaches 0 then the Lose scene will load
 	}
 }

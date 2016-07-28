@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Level1_5: MonoBehaviour {
 
@@ -56,7 +57,7 @@ public class Level1_5: MonoBehaviour {
 	}
 
 	void SetCurrentQuestion() {
-		int randomQuestionIndex = Random.Range(0, unansweredQuestions.Count);
+		int randomQuestionIndex = UnityEngine.Random.Range(0, unansweredQuestions.Count);
 		currentQuestion = unansweredQuestions[randomQuestionIndex];
 		factText.text = currentQuestion.fact;
 	}
@@ -96,5 +97,11 @@ public class Level1_5: MonoBehaviour {
 		}
 
 		StartCoroutine(TransitionToNextQuestion());
+	}
+
+	void Update ()
+	{
+		if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
+			SceneManager.LoadScene("Lose");
 	}
 }
