@@ -26,8 +26,17 @@ public class GameManager: MonoBehaviour {
 	private int LevelAmount = 7; //this needs to be updated if the level count changes
 	private int CurrentLevel;
 
+	[SerializeField] 
+	private Text countdownTimer;
+
+	//public string timeLeft = GlobalCountDown.FromSeconds.ToString("mm:ss");
+
+	//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds().ToString("D2");
+
 	void Start() {
 		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (8));//set the amount of time that the player has to finish the level
+		//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds(8).ToString("D2");
+
 		PlayerPrefs.SetInt("Level2", 0);
 		CheckCurrentLevel();
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) {
@@ -93,9 +102,13 @@ public class GameManager: MonoBehaviour {
 		StartCoroutine(TransitionToNextQuestion());
 	}
 
-	void Update ()
-	{
-		if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
-			SceneManager.LoadScene("Lose");  //if the timer reaches 0 then the Lose scene will load
+	void Update (){
+
+		countdownTimer.text = GlobalCountDown.TimeLeft.ToString();
+
+		{
+			if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
+				SceneManager.LoadScene("Lose");  //if the timer reaches 0 then the Lose scene will load
+		}
 	}
 }

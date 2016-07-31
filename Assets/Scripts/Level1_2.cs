@@ -31,6 +31,10 @@ public class Level1_2: MonoBehaviour {
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
 
+	[SerializeField] 
+	private Text countdownTimer;
+
+
 	public int score = 5010;
 
 	private int LevelAmount = 7; //this needs to be updated if the level count changes
@@ -115,9 +119,14 @@ public class Level1_2: MonoBehaviour {
 		StartCoroutine(TransitionToNextQuestion());
 	}
 
-	void Update ()
-	{
-		if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
-			SceneManager.LoadScene("Lose");
+	void Update (){
+
+		countdownTimer.text = GlobalCountDown.TimeLeft.ToString();
+
+		{
+			if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
+				SceneManager.LoadScene("Lose");  //if the timer reaches 0 then the Lose scene will load
+		}
 	}
+
 }
