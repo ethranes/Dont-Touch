@@ -25,6 +25,8 @@ public class Level1_5: MonoBehaviour {
 	public int score = 10000;
 	private int LevelAmount = 7; //this needs to be updated if the level count changes
 	private int CurrentLevel;
+	[SerializeField] 
+	private Text countdownTimer;
 
 	void Start() {
 		//PlayerPrefs.SetInt("Level2", 1);
@@ -88,7 +90,7 @@ public class Level1_5: MonoBehaviour {
 	public void UserSelectFalse() {
 		animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
-			PlayerPrefs.SetInt("Level2", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			PlayerPrefs.SetInt("Level5", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");
 			SceneManager.LoadScene("sceneSelectBeta");
 		} else {
@@ -99,9 +101,14 @@ public class Level1_5: MonoBehaviour {
 		StartCoroutine(TransitionToNextQuestion());
 	}
 
-	void Update ()
-	{
-		if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
-			SceneManager.LoadScene("Lose");
+	void Update (){
+
+		countdownTimer.text = GlobalCountDown.TimeLeft.ToString();
+
+		{
+			if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
+				SceneManager.LoadScene("Lose");  //if the timer reaches 0 then the Lose scene will load
+		}
 	}
+
 }

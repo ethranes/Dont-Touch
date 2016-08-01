@@ -25,6 +25,9 @@ public class Level1_4: MonoBehaviour {
 	public int score = 10000;
 	private int LevelAmount = 7; //this needs to be updated if the level count changes
 	private int CurrentLevel;
+	[SerializeField] 
+	private Text countdownTimer;
+
 
 	void Start() {
 		//PlayerPrefs.SetInt("Level2", 1);
@@ -99,9 +102,14 @@ public class Level1_4: MonoBehaviour {
 		StartCoroutine(TransitionToNextQuestion());
 	}
 
-	void Update ()
-	{
-		if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
-			SceneManager.LoadScene("Lose");
+	void Update (){
+
+		countdownTimer.text = GlobalCountDown.TimeLeft.ToString();
+
+		{
+			if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
+				SceneManager.LoadScene("Lose");  //if the timer reaches 0 then the Lose scene will load
+		}
 	}
+
 }

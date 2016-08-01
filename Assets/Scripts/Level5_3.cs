@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using System;
 
-public class Level1_3: MonoBehaviour {
+public class Level5_3: MonoBehaviour {
 
 	public Question[] questions;
 	private static List < Question > unansweredQuestions;
@@ -78,7 +78,7 @@ public class Level1_3: MonoBehaviour {
 		if (currentQuestion.isTrue) {
 			PlayerPrefs.SetInt("Level2", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");		
-			SceneManager.LoadScene("Level1.4");
+			SceneManager.LoadScene("Level5.4");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -92,7 +92,7 @@ public class Level1_3: MonoBehaviour {
 		if (!currentQuestion.isTrue) {
 			PlayerPrefs.SetInt("Level2", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");
-			SceneManager.LoadScene("Level1.4");
+			SceneManager.LoadScene("Level5.4");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong

@@ -71,7 +71,7 @@ public class Level2_3 : MonoBehaviour {
 		animator.SetTrigger ("True");
 		if (currentQuestion.isTrue) {
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Level2.4");
+			SceneManager.LoadScene ("sceneselectBeta");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -84,8 +84,9 @@ public class Level2_3 : MonoBehaviour {
 	{
 		animator.SetTrigger ("False");
 		if (!currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level3", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Level2.4");
+			SceneManager.LoadScene ("sceneselectBeta");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
