@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Level2_2 : MonoBehaviour {
 
@@ -30,6 +31,10 @@ public class Level2_2 : MonoBehaviour {
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
 
+	[SerializeField] 
+	private Text countdownTimer;
+
+
 	void Start ()
 	{
 
@@ -43,7 +48,7 @@ public class Level2_2 : MonoBehaviour {
 
 	void SetCurrentQuestion ()
 	{
-		int randomQuestionIndex = Random.Range(0, unansweredQuestions.Count);
+		int randomQuestionIndex = UnityEngine.Random.Range(0, unansweredQuestions.Count);
 		currentQuestion = unansweredQuestions[randomQuestionIndex];
 
 		factText.text = currentQuestion.fact;
@@ -93,4 +98,16 @@ public class Level2_2 : MonoBehaviour {
 
 		StartCoroutine (TransitionToNextQuestion ());
 	}
+
+	void Update (){
+
+		countdownTimer.text = GlobalCountDown.TimeLeft.ToString();
+
+		{
+			if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
+				SceneManager.LoadScene("Lose");  //if the timer reaches 0 then the Lose scene will load
+		}
+	}
+
+
 }

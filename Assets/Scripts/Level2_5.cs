@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using System;
 
-public class Level2 : MonoBehaviour {
+public class Level2_5 : MonoBehaviour {
 
 	public Question[] questions;
 	private static List<Question> unansweredQuestions;
@@ -37,7 +37,6 @@ public class Level2 : MonoBehaviour {
 
 	void Start ()
 	{
-		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (30));//set the amount of time that the player has to finish the level
 
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) 
 		{
@@ -54,13 +53,13 @@ public class Level2 : MonoBehaviour {
 
 		factText.text = currentQuestion.fact;
 
-//		if (currentQuestion.isTrue) {
-//			trueAnserText.text = "CORRECT";
-//			falseAnswerText.text = "WRONG";
-//		} else {
-//			trueAnserText.text = "WRONG";
-//			falseAnswerText.text = "CORRECT";
-//		}
+		//		if (currentQuestion.isTrue) {
+		//			trueAnserText.text = "CORRECT";
+		//			falseAnswerText.text = "WRONG";
+		//		} else {
+		//			trueAnserText.text = "WRONG";
+		//			falseAnswerText.text = "CORRECT";
+		//		}
 	}
 
 	IEnumerator TransitionToNextQuestion ()
@@ -76,8 +75,9 @@ public class Level2 : MonoBehaviour {
 	{
 		animator.SetTrigger ("True");
 		if (currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level3", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Level2.2");
+			SceneManager.LoadScene ("sceneselectBeta");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -90,8 +90,9 @@ public class Level2 : MonoBehaviour {
 	{
 		animator.SetTrigger ("False");
 		if (!currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level3", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log ("Correct");
-			SceneManager.LoadScene ("Level2.2");
+			SceneManager.LoadScene ("sceneselectBeta");
 		} else {
 			Debug.Log ("Wrong!");
 			SceneManager.LoadScene ("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
