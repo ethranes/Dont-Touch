@@ -20,7 +20,7 @@ public static class GlobalCountDown
 		get
 		{
 			//var result = DateTime.UtcNow - TimeStarted;
-			var result = TotalTime - (DateTime.UtcNow - TimeStarted);
+			TimeSpan result = TotalTime - (DateTime.UtcNow - TimeStarted);
 			if (result.TotalSeconds <= 0)
 				//SceneManager.LoadScene("Lose");
 				return TimeSpan.Zero;			
