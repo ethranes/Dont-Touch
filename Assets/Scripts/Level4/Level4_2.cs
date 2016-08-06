@@ -42,7 +42,7 @@ public class Level4_2: MonoBehaviour {
 
 	void Start() {
 		//GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (10));
-		PlayerPrefs.SetInt("Level2", 0);
+		//PlayerPrefs.SetInt("Level2", 0);
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) {
 			unansweredQuestions = questions.ToList < Question > ();
 		}

@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using System;
 
-public class Level1_5: MonoBehaviour {
+public class Level3_4: MonoBehaviour {
 
 	public Question[] questions;
 	private static List < Question > unansweredQuestions;
@@ -76,7 +76,7 @@ public class Level1_5: MonoBehaviour {
 	public void UserSelectTrue() {		
 		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
-			PlayerPrefs.SetInt("Level2", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			PlayerPrefs.SetInt("Level4", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");		
 			SceneManager.LoadScene("sceneSelectBeta");
 		} else {
@@ -90,7 +90,7 @@ public class Level1_5: MonoBehaviour {
 	public void UserSelectFalse() {
 		animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
-			PlayerPrefs.SetInt("Level5", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			PlayerPrefs.SetInt("Level4", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");
 			SceneManager.LoadScene("sceneSelectBeta");
 		} else {

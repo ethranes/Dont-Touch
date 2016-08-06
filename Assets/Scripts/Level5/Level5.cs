@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using System;
 
-public class Level5_4: MonoBehaviour {
+public class Level5: MonoBehaviour {
 
 	public Question[] questions;
 	private static List < Question > unansweredQuestions;
@@ -22,20 +22,26 @@ public class Level5_4: MonoBehaviour {
 	private Animator animator = null;
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
-	public int score = 10000;
+	public int score = 10;
 	private int LevelAmount = 7; //this needs to be updated if the level count changes
 	private int CurrentLevel;
+
 	[SerializeField] 
 	private Text countdownTimer;
 
-	void Start() {
-		//PlayerPrefs.SetInt("Level2", 1);
-		CheckCurrentLevel();
+	//public string timeLeft = GlobalCountDown.FromSeconds.ToString("mm:ss");
 
+	//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds().ToString("D2");
+
+	void Start() {
+		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (10));//set the amount of time that the player has to finish the level
+		//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds(8).ToString("D2");
+
+		//PlayerPrefs.SetInt("Level2", 0);
+		CheckCurrentLevel();
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) {
 			unansweredQuestions = questions.ToList < Question > ();
 		}
-
 		SetCurrentQuestion();
 	}
 
@@ -66,33 +72,28 @@ public class Level5_4: MonoBehaviour {
 
 	IEnumerator TransitionToNextQuestion() {
 		unansweredQuestions.Remove(currentQuestion);
-
 		yield
 		return new WaitForSeconds(timeBetweenQuestions);
-
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
-	public void UserSelectTrue() {		
+	public void UserSelectTrue() {
 		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
-			PlayerPrefs.SetInt("Level2", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
-			Debug.Log("Correct");		
-			SceneManager.LoadScene("Level5.5");
+			Debug.Log("Correct");
+			SceneManager.LoadScene("Level5.2");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
 		}
-
 		StartCoroutine(TransitionToNextQuestion());
 	}
 
 	public void UserSelectFalse() {
 		animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
-			PlayerPrefs.SetInt("Level2", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");
-			SceneManager.LoadScene("Level5.5");
+			SceneManager.LoadScene("Level5.2");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -109,5 +110,4 @@ public class Level5_4: MonoBehaviour {
 				SceneManager.LoadScene("Lose");  //if the timer reaches 0 then the Lose scene will load
 		}
 	}
-
 }

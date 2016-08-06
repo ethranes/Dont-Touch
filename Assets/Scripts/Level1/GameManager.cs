@@ -6,47 +6,42 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using System;
 
-public class Level4: MonoBehaviour {
+public class GameManager: MonoBehaviour {
 
 	public Question[] questions;
 	private static List < Question > unansweredQuestions;
-
-	//private int userScore = 0;
 	public Text scoreText;
-
 	private Question currentQuestion;
-
 	[SerializeField]
 	private Text factText = null;
-
 	[SerializeField]
 	private Text trueAnserText;
-
 	[SerializeField]
 	private Text falseAnswerText;
-
 	[SerializeField]
 	private Animator animator = null;
-
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
+	public int score = 10;
+	private int LevelAmount = 7; //this needs to be updated if the level count changes
+	private int CurrentLevel;
 
 	[SerializeField] 
 	private Text countdownTimer;
 
+	//public string timeLeft = GlobalCountDown.FromSeconds.ToString("mm:ss");
 
-	public int score = 5010;
-
-	private int LevelAmount = 7; //this needs to be updated if the level count changes
-	private int CurrentLevel;
+	//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds().ToString("D2");
 
 	void Start() {
-		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (10));
+		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (10));//set the amount of time that the player has to finish the level
+		//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds(8).ToString("D2");
+
 		PlayerPrefs.SetInt("Level2", 0);
+		CheckCurrentLevel();
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) {
 			unansweredQuestions = questions.ToList < Question > ();
 		}
-
 		SetCurrentQuestion();
 	}
 
@@ -72,24 +67,13 @@ public class Level4: MonoBehaviour {
 	void SetCurrentQuestion() {
 		int randomQuestionIndex = UnityEngine.Random.Range(0, unansweredQuestions.Count);
 		currentQuestion = unansweredQuestions[randomQuestionIndex];
-
 		factText.text = currentQuestion.fact;
-
-		//		if (currentQuestion.isTrue) {
-		//			trueAnserText.text = "CORRECT";
-		//			falseAnswerText.text = "WRONG";
-		//		} else {
-		//			trueAnserText.text = "WRONG";
-		//			falseAnswerText.text = "CORRECT";
-		//		}
 	}
 
 	IEnumerator TransitionToNextQuestion() {
 		unansweredQuestions.Remove(currentQuestion);
-
 		yield
 		return new WaitForSeconds(timeBetweenQuestions);
-
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
@@ -97,12 +81,11 @@ public class Level4: MonoBehaviour {
 		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
 			Debug.Log("Correct");
-			SceneManager.LoadScene("Level4.2");
+			SceneManager.LoadScene("Level1.2");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
 		}
-
 		StartCoroutine(TransitionToNextQuestion());
 	}
 
@@ -110,7 +93,7 @@ public class Level4: MonoBehaviour {
 		animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
 			Debug.Log("Correct");
-			SceneManager.LoadScene("Level4.2");
+			SceneManager.LoadScene("Level1.2");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -127,5 +110,4 @@ public class Level4: MonoBehaviour {
 				SceneManager.LoadScene("Lose");  //if the timer reaches 0 then the Lose scene will load
 		}
 	}
-
 }
