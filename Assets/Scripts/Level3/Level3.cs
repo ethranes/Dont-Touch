@@ -107,7 +107,7 @@ public class Level3: MonoBehaviour {
 		countdownTimer.text = ("Only ") + GlobalCountDown.TimeLeft.Seconds.ToString() + (" Left!");
 		{
 			if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
-				SceneManager.LoadScene("Lose");  //if the timer reaches 0 then the Lose scene will load
+				SceneManager.LoadScene("LoseTime");  //if the timer reaches 0 then the Lose scene will load
 		}
 	}
 }
