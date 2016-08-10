@@ -37,7 +37,7 @@ public class Level3_2: MonoBehaviour {
 
 	public int score = 5010;
 
-	private int LevelAmount = 7; //this needs to be updated if the level count changes
+	private int LevelAmount = 6; //this needs to be updated if the level count changes
 	private int CurrentLevel;
 
 	void Start() {
