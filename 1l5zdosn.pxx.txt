@@ -1,0 +1,32 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+# Conflicts:
+#	Assets/Images/GAME/Level3/Level3.5.meta~HEAD.meta
+#	Assets/Images/GAME/Level4/Level4.5.meta
+#	Assets/Images/UI/blanketpng.meta
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 2 and 1 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	renamed:    Assets/Plugins.meta -> Assets/Images/GAME/Level1/Level1.6.meta
+#	new file:   Assets/Images/GAME/Level2/Level2.6.meta
+#	new file:   Assets/Images/GAME/Level3/Level3.6.meta
+#	renamed:    Assets/Images/GAME/Level4/Level4.5.meta -> Assets/Images/GAME/Level4/Level4.5.meta~HEAD
+#	new file:   Assets/Images/GAME/Level4/Level4.5.meta~origin_master
+#	new file:   Assets/Images/GAME/Level4/Level4.6.meta
+#	new file:   Assets/Images/GAME/Level6.meta
+#
+
