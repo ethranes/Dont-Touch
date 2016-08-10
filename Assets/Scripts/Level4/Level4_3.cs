@@ -96,9 +96,9 @@ public class Level4_3: MonoBehaviour {
 	public void UserSelectTrue() {
 		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
-			PlayerPrefs.SetInt("Level5", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			PlayerPrefs.SetInt("Level5", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");
-			SceneManager.LoadScene("sceneselectBeta");
+			SceneManager.LoadScene("Level4.4");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -109,10 +109,10 @@ public class Level4_3: MonoBehaviour {
 
 	public void UserSelectFalse() {
 		animator.SetTrigger("False");
-		PlayerPrefs.SetInt("Level5", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+		PlayerPrefs.SetInt("Level5", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 		if (!currentQuestion.isTrue) {
 			Debug.Log("Correct");
-			SceneManager.LoadScene("sceneselectBeta");
+			SceneManager.LoadScene("Level4.4");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong

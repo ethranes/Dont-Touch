@@ -6,32 +6,43 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using System;
 
-public class Level3_4: MonoBehaviour {
+public class Level4_5: MonoBehaviour {
 
 	public Question[] questions;
 	private static List < Question > unansweredQuestions;
+
+	//private int userScore = 0;
 	public Text scoreText;
+
 	private Question currentQuestion;
+
 	[SerializeField]
 	private Text factText = null;
+
 	[SerializeField]
 	private Text trueAnserText;
+
 	[SerializeField]
 	private Text falseAnswerText;
+
 	[SerializeField]
 	private Animator animator = null;
+
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
-	public int score = 10000;
-	private int LevelAmount = 7; //this needs to be updated if the level count changes
-	private int CurrentLevel;
+
 	[SerializeField] 
 	private Text countdownTimer;
 
-	void Start() {
-		//PlayerPrefs.SetInt("Level2", 1);
-		CheckCurrentLevel();
 
+	public int score = 5010;
+
+	private int LevelAmount = 7; //this needs to be updated if the level count changes
+	private int CurrentLevel;
+
+	void Start() {
+		//GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (10));
+		//PlayerPrefs.SetInt("Level2", 0);
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) {
 			unansweredQuestions = questions.ToList < Question > ();
 		}
@@ -51,7 +62,7 @@ public class Level3_4: MonoBehaviour {
 	void SaveMyGame() {
 		int NextLevel = CurrentLevel + 1;
 		if (NextLevel < LevelAmount) {
-			PlayerPrefs.SetInt("Level" + NextLevel.ToString(), 1); //unlock next level
+			PlayerPrefs.SetInt("Level" + NextLevel.ToString(), 0); //unlock next level
 			PlayerPrefs.SetInt("Level" + CurrentLevel.ToString() + "_score", score);
 		} else {
 			PlayerPrefs.SetInt("Level" + CurrentLevel.ToString() + "_score", score);
@@ -61,7 +72,16 @@ public class Level3_4: MonoBehaviour {
 	void SetCurrentQuestion() {
 		int randomQuestionIndex = UnityEngine.Random.Range(0, unansweredQuestions.Count);
 		currentQuestion = unansweredQuestions[randomQuestionIndex];
+
 		factText.text = currentQuestion.fact;
+
+		//		if (currentQuestion.isTrue) {
+		//			trueAnserText.text = "CORRECT";
+		//			falseAnswerText.text = "WRONG";
+		//		} else {
+		//			trueAnserText.text = "WRONG";
+		//			falseAnswerText.text = "CORRECT";
+		//		}
 	}
 
 	IEnumerator TransitionToNextQuestion() {
@@ -73,12 +93,12 @@ public class Level3_4: MonoBehaviour {
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
-	public void UserSelectTrue() {		
+	public void UserSelectTrue() {
 		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
-			PlayerPrefs.SetInt("Level4", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
-			Debug.Log("Correct");		
-			SceneManager.LoadScene("Level3.5");
+			PlayerPrefs.SetInt("Level5", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			Debug.Log("Correct");
+			SceneManager.LoadScene("sceneSelectBeta");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -89,10 +109,10 @@ public class Level3_4: MonoBehaviour {
 
 	public void UserSelectFalse() {
 		animator.SetTrigger("False");
+		PlayerPrefs.SetInt("Level5", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 		if (!currentQuestion.isTrue) {
-			PlayerPrefs.SetInt("Le vel4", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");
-			SceneManager.LoadScene("Level3.5");
+			SceneManager.LoadScene("sceneSelectBeta");
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
