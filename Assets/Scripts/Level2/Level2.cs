@@ -37,7 +37,7 @@ public class Level2 : MonoBehaviour {
 
 	void Start ()
 	{
-		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (10));//set the amount of time that the player has to finish the level
+		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (12));//set the amount of time that the player has to finish the level
 
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) 
 		{
