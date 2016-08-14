@@ -75,7 +75,7 @@ public class Level1_4: MonoBehaviour {
 	}
 
 	public void UserSelectTrue() {		
-		animator.SetTrigger("True");
+		//animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
 			PlayerPrefs.SetInt("Level2", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");		
@@ -89,7 +89,7 @@ public class Level1_4: MonoBehaviour {
 	}
 
 	public void UserSelectFalse() {
-		animator.SetTrigger("False");
+		//animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
 			PlayerPrefs.SetInt("Level2", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");

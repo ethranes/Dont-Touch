@@ -18,8 +18,8 @@ public class GameManager: MonoBehaviour {
 	private Text trueAnserText;
 	[SerializeField]
 	private Text falseAnswerText;
-	[SerializeField]
-	private Animator animator = null;
+	//[SerializeField]
+	//private Animator animator = null;
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
 	public int score = 10;
@@ -34,7 +34,7 @@ public class GameManager: MonoBehaviour {
 	//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds().ToString("D2");
 
 	void Start() {
-		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (14));//set the amount of time that the player has to finish the level
+		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (14000));//set the amount of time that the player has to finish the level
 		//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds(8).ToString("D2");
 
 		PlayerPrefs.SetInt("Level2", 0);
@@ -78,7 +78,7 @@ public class GameManager: MonoBehaviour {
 	}
 
 	public void UserSelectTrue() {
-		animator.SetTrigger("True");
+		//animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level1.2");
@@ -90,7 +90,7 @@ public class GameManager: MonoBehaviour {
 	}
 
 	public void UserSelectFalse() {
-		animator.SetTrigger("False");
+		//animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level1.2");
@@ -104,7 +104,7 @@ public class GameManager: MonoBehaviour {
 
 	void Update (){
 
-		countdownTimer.text = ("Only ") + GlobalCountDown.TimeLeft.Seconds.ToString() + (" Left!");
+		countdownTimer.text = GlobalCountDown.TimeLeft.Seconds.ToString();
 		{
 			if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
 				SceneManager.LoadScene("LoseTime");  //if the timer reaches 0 then the Lose scene will load

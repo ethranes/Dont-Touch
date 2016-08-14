@@ -14,22 +14,26 @@ public class colourSwitchSprite : MonoBehaviour {
 		this.gameObject.GetComponent<SpriteRenderer> ().sprite = GreenCircle;
 	}
 
-	void Update(){
+	void Update()
+	{
 		timer -= Time.deltaTime;
-		if (timer <= 0) {
+		if (timer <= 0) 
+		{
 			if (this.gameObject.GetComponent<SpriteRenderer> ().sprite == GreenCircle) 
 			{
 				this.gameObject.GetComponent<SpriteRenderer> ().sprite = WhiteCircle;
 				timer = delay;
 				return;
 			}
-		}
+
 		if (this.gameObject.GetComponent<SpriteRenderer> ().sprite == WhiteCircle) 
 		{
 			this.gameObject.GetComponent<SpriteRenderer> ().sprite = GreenCircle;
 			timer = delay;
 			return;
+			}
 		}
+
 	}
 
 	}

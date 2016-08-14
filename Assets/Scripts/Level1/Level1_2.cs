@@ -94,7 +94,7 @@ public class Level1_2: MonoBehaviour {
 	}
 
 	public void UserSelectTrue() {
-		animator.SetTrigger("True");
+		//animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level1.3");
@@ -107,7 +107,7 @@ public class Level1_2: MonoBehaviour {
 	}
 
 	public void UserSelectFalse() {
-		animator.SetTrigger("False");
+		//animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level1.3");
