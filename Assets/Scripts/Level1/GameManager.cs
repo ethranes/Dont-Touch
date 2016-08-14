@@ -34,7 +34,7 @@ public class GameManager: MonoBehaviour {
 	//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds().ToString("D2");
 
 	void Start() {
-		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (14000));//set the amount of time that the player has to finish the level
+		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (14));//set the amount of time that the player has to finish the level
 		//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds(8).ToString("D2");
 
 		PlayerPrefs.SetInt("Level2", 0);

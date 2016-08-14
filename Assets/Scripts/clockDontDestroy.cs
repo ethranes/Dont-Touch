@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class clockDontDestroy : MonoBehaviour {
 
@@ -12,6 +13,9 @@ public class clockDontDestroy : MonoBehaviour {
 
 		void Awake()
 		{
+
+
+
 			if (_instance != null && _instance != this)
 			{
 				Destroy(transform.root.gameObject);
