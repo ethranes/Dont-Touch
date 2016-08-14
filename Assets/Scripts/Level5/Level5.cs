@@ -34,7 +34,7 @@ public class Level5: MonoBehaviour {
 	//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds().ToString("D2");
 
 	void Start() {
-		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (10));//set the amount of time that the player has to finish the level
+		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (8));//set the amount of time that the player has to finish the level
 		//string timeLeft = GlobalCountDown.TimeLeft.TotalSeconds(8).ToString("D2");
 
 		//PlayerPrefs.SetInt("Level2", 0);
@@ -104,7 +104,7 @@ public class Level5: MonoBehaviour {
 
 	void Update (){
 
-		countdownTimer.text = ("Only ") + GlobalCountDown.TimeLeft.Seconds.ToString() + (" Left!");
+		countdownTimer.text = GlobalCountDown.TimeLeft.Seconds.ToString();
 		{
 			if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
 				SceneManager.LoadScene("LoseTime");  //if the timer reaches 0 then the Lose scene will load

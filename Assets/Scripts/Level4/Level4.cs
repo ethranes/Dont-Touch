@@ -41,7 +41,7 @@ public class Level4: MonoBehaviour {
 	private int CurrentLevel;
 
 	void Start() {
-		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (10));
+		GlobalCountDown.StartCountDown (TimeSpan.FromSeconds (9));
 		//PlayerPrefs.SetInt("Level2", 0);
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) {
 			unansweredQuestions = questions.ToList < Question > ();
@@ -121,7 +121,7 @@ public class Level4: MonoBehaviour {
 
 	void Update (){
 
-		countdownTimer.text = ("Only ") + GlobalCountDown.TimeLeft.Seconds.ToString() + (" Left!");
+		countdownTimer.text = GlobalCountDown.TimeLeft.Seconds.ToString();
 		{
 			if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
 				SceneManager.LoadScene("LoseTime");  //if the timer reaches 0 then the Lose scene will load

@@ -103,7 +103,7 @@ public class Level5_5: MonoBehaviour {
 
 	void Update (){
 
-		countdownTimer.text = ("Only ") + GlobalCountDown.TimeLeft.Seconds.ToString() + (" Left!");
+		countdownTimer.text = GlobalCountDown.TimeLeft.Seconds.ToString();
 		{
 			if (GlobalCountDown.TimeLeft == TimeSpan.Zero)
 				SceneManager.LoadScene("LoseTime");  //if the timer reaches 0 then the Lose scene will load

@@ -3,7 +3,12 @@ using System.Collections;
 
 public class clockDestroy : MonoBehaviour {
 
-	// Use this for initialization
+	void Awake() {
+
+		Destroy (GameObject.Find("Clock"));
+
+	}
+
 	void Start () {
 
 		Destroy (GameObject.Find("Clock"));
@@ -13,5 +18,7 @@ public class clockDestroy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+		Destroy (GameObject.Find("Clock"));
+
 	}
 }
