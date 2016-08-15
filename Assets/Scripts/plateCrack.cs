@@ -3,7 +3,7 @@ using System.Collections;
 
 public class plateCrack : MonoBehaviour {
 
-	public Sprite plate, setting;
+	public Sprite plate, crackplate;
 	private SpriteRenderer spriteRenderer;
 
 
@@ -27,7 +27,7 @@ public class plateCrack : MonoBehaviour {
 	
 			//PlayerPrefs.SetInt ("volume", 50);
 		} else {
-			spriteRenderer.sprite = setting;
+			spriteRenderer.sprite = crackplate;
 		
 			//PlayerPrefs.SetInt("volume", 0);
 		}
@@ -45,7 +45,7 @@ public class plateCrack : MonoBehaviour {
 			}
 		}
 		if (Input.GetMouseButtonUp (0)) {
-			Vector3 wp = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+			Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			Vector2 mousePos = new Vector2 (wp.x, wp.y);
 			if (GetComponent<Collider2D>() == Physics2D.OverlapPoint (mousePos)) {
 				result = true;

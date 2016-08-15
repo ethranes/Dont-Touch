@@ -32,6 +32,7 @@ public class Level1_5: MonoBehaviour {
 		//PlayerPrefs.SetInt("Level2", 1);
 		CheckCurrentLevel();
 
+
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) {
 			unansweredQuestions = questions.ToList < Question > ();
 		}

@@ -22,7 +22,7 @@ public class GameManager: MonoBehaviour {
 	//private Animator animator = null;
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
-	public int score = 10;
+	public int score = 999999;
 	private int LevelAmount = 6; //this needs to be updated if the level count changes
 	private int CurrentLevel;
 
@@ -43,6 +43,8 @@ public class GameManager: MonoBehaviour {
 			unansweredQuestions = questions.ToList < Question > ();
 		}
 		SetCurrentQuestion();
+
+
 	}
 
 	void CheckCurrentLevel() {
