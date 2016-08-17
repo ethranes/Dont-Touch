@@ -32,6 +32,10 @@ public class Level1_5: MonoBehaviour {
 		//PlayerPrefs.SetInt("Level2", 1);
 		CheckCurrentLevel();
 
+		//this is for save game testing
+		//PlayerPrefs.SetInt("Level1_" + score);
+		//end save game testing
+
 
 		if (unansweredQuestions == null || unansweredQuestions.Count == 0) {
 			unansweredQuestions = questions.ToList < Question > ();
@@ -78,6 +82,7 @@ public class Level1_5: MonoBehaviour {
 		//animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
 			PlayerPrefs.SetInt("Level2", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			PlayerPrefs.SetInt("Level1.5_score", score);//This will set the score to the int that is declared above (only run when answer is correct)
 			Debug.Log("Correct");		
 			SceneManager.LoadScene("sceneSelectBeta");
 		} else {
@@ -92,6 +97,7 @@ public class Level1_5: MonoBehaviour {
 		//animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
 			PlayerPrefs.SetInt("Level2", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			PlayerPrefs.SetInt("Level1.5_score", score);//This will set the score to the int that is declared above
 			Debug.Log("Correct");
 			SceneManager.LoadScene("sceneSelectBeta");
 		} else {

@@ -22,7 +22,7 @@ public class GameManager: MonoBehaviour {
 	//private Animator animator = null;
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
-	public int score = 999999;
+	public int score = 1;
 	private int LevelAmount = 6; //this needs to be updated if the level count changes
 	private int CurrentLevel;
 
@@ -84,6 +84,7 @@ public class GameManager: MonoBehaviour {
 		if (currentQuestion.isTrue) {
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level1.2");
+			PlayerPrefs.SetInt("Level1_score", score);//This will set the score to the int that is declared above (only run when answer is correct)
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -96,6 +97,7 @@ public class GameManager: MonoBehaviour {
 		if (!currentQuestion.isTrue) {
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level1.2");
+			PlayerPrefs.SetInt("Level1_score", score);//This will set the score to the int that is declared above (only run when answer is correct)
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong

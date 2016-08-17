@@ -35,7 +35,7 @@ public class Level3_2: MonoBehaviour {
 	private Text countdownTimer;
 
 
-	public int score = 5010;
+	public int score = 1;
 
 	private int LevelAmount = 6; //this needs to be updated if the level count changes
 	private int CurrentLevel;
@@ -96,6 +96,7 @@ public class Level3_2: MonoBehaviour {
 	public void UserSelectTrue() {
 		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level3_score", score);//This will set the score to the int that is declared above
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level3.3");
 		} else {
@@ -109,6 +110,7 @@ public class Level3_2: MonoBehaviour {
 	public void UserSelectFalse() {
 		animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level3_score", score);//This will set the score to the int that is declared above
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level3.3");
 		} else {

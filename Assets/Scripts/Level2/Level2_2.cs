@@ -34,6 +34,8 @@ public class Level2_2 : MonoBehaviour {
 	[SerializeField] 
 	private Text countdownTimer;
 
+	public int score = 1;
+
 
 	void Start ()
 	{
@@ -75,6 +77,7 @@ public class Level2_2 : MonoBehaviour {
 	{
 		animator.SetTrigger ("True");
 		if (currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level2_score", score);//This will set the score to the int that is declared above
 			Debug.Log ("Correct");
 			SceneManager.LoadScene ("Level2.3");
 		} else {
@@ -89,6 +92,7 @@ public class Level2_2 : MonoBehaviour {
 	{
 		animator.SetTrigger ("False");
 		if (!currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level2_score", score);//This will set the score to the int that is declared above
 			Debug.Log ("Correct");
 			SceneManager.LoadScene ("Level2.3");
 		} else {

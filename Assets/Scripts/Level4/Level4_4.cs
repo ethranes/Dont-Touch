@@ -35,7 +35,7 @@ public class Level4_4: MonoBehaviour {
 	private Text countdownTimer;
 
 
-	public int score = 5010;
+	public int score = 5001;
 
 	private int LevelAmount = 6; //this needs to be updated if the level count changes
 	private int CurrentLevel;
@@ -96,6 +96,7 @@ public class Level4_4: MonoBehaviour {
 	public void UserSelectTrue() {
 		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level4_score", score);//This will set the score to the int that is declared above
 			PlayerPrefs.SetInt("Level5", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level4.5");
@@ -111,6 +112,7 @@ public class Level4_4: MonoBehaviour {
 		animator.SetTrigger("False");
 		PlayerPrefs.SetInt("Level5", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 		if (!currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level4_score", score);//This will set the score to the int that is declared above
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level4.5");
 		} else {

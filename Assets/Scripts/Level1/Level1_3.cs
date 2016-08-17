@@ -22,7 +22,7 @@ public class Level1_3: MonoBehaviour {
 	private Animator animator = null;
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
-	public int score = 10000;
+	public int score = 5001;
 	private int LevelAmount = 6; //this needs to be updated if the level count changes
 	private int CurrentLevel;
 	[SerializeField] 
@@ -77,6 +77,7 @@ public class Level1_3: MonoBehaviour {
 		//animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
 			PlayerPrefs.SetInt("Level2", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			PlayerPrefs.SetInt("Level1_score", score);//This will set the score to the int that is declared above (only run when answer is correct)
 			Debug.Log("Correct");		
 			SceneManager.LoadScene("Level1.4");
 		} else {
@@ -91,6 +92,7 @@ public class Level1_3: MonoBehaviour {
 		//animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
 			PlayerPrefs.SetInt("Level2", 0);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
+			PlayerPrefs.SetInt("Level1_score", score);//This will set the score to the int that is declared above (only run when answer is correct)
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level1.4");
 		} else {

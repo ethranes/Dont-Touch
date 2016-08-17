@@ -22,7 +22,7 @@ public class Level5: MonoBehaviour {
 	private Animator animator = null;
 	[SerializeField]
 	private float timeBetweenQuestions = 1f;
-	public int score = 10;
+	public int score = 1;
 	private int LevelAmount = 6; //this needs to be updated if the level count changes
 	private int CurrentLevel;
 
@@ -80,6 +80,7 @@ public class Level5: MonoBehaviour {
 	public void UserSelectTrue() {
 		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level5_score", score);//This will set the score to the int that is declared above
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level5.2");
 		} else {
@@ -92,6 +93,7 @@ public class Level5: MonoBehaviour {
 	public void UserSelectFalse() {
 		animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level5_score", score);//This will set the score to the int that is declared above
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level5.2");
 		} else {

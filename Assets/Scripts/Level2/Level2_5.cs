@@ -34,6 +34,8 @@ public class Level2_5 : MonoBehaviour {
 	[SerializeField] 
 	private Text countdownTimer;
 
+	public int score = 10000;
+
 
 	void Start ()
 	{
@@ -75,6 +77,7 @@ public class Level2_5 : MonoBehaviour {
 	{
 		animator.SetTrigger ("True");
 		if (currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level2_score", score);//This will set the score to the int that is declared above
 			PlayerPrefs.SetInt("Level3", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log ("Correct");
 			SceneManager.LoadScene ("sceneselectBeta");
@@ -90,6 +93,7 @@ public class Level2_5 : MonoBehaviour {
 	{
 		animator.SetTrigger ("False");
 		if (!currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level2_score", score);//This will set the score to the int that is declared above
 			PlayerPrefs.SetInt("Level3", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log ("Correct");
 			SceneManager.LoadScene ("sceneselectBeta");

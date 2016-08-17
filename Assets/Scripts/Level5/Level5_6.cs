@@ -76,6 +76,7 @@ public class Level5_6: MonoBehaviour {
 	public void UserSelectTrue() {		
 		animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level5_score", score);//This will set the score to the int that is declared above
 			PlayerPrefs.SetInt("Level6", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");		
 			SceneManager.LoadScene("sceneSelectBeta");
@@ -90,6 +91,7 @@ public class Level5_6: MonoBehaviour {
 	public void UserSelectFalse() {
 		animator.SetTrigger("False");
 		if (!currentQuestion.isTrue) {
+			PlayerPrefs.SetInt("Level5_score", score);//This will set the score to the int that is declared above
 			PlayerPrefs.SetInt("Level6", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			Debug.Log("Correct");
 			SceneManager.LoadScene("sceneSelectBeta");

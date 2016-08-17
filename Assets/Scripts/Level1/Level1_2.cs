@@ -35,7 +35,7 @@ public class Level1_2: MonoBehaviour {
 	private Text countdownTimer;
 
 
-	public int score = 5010;
+	public int score = 1;
 
 	private int LevelAmount = 6; //this needs to be updated if the level count changes
 	private int CurrentLevel;
@@ -98,6 +98,7 @@ public class Level1_2: MonoBehaviour {
 		if (currentQuestion.isTrue) {
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level1.3");
+			PlayerPrefs.SetInt("Level1_score", score);//This will set the score to the int that is declared above
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -111,6 +112,7 @@ public class Level1_2: MonoBehaviour {
 		if (!currentQuestion.isTrue) {
 			Debug.Log("Correct");
 			SceneManager.LoadScene("Level1.3");
+			PlayerPrefs.SetInt("Level1_score", score);//This will set the score to the int that is declared above
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong

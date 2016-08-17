@@ -42,17 +42,17 @@ public class LevelManagerNew: MonoBehaviour {
 			button.GetComponent < Button > ().interactable = level.IsInteractable;
 			button.GetComponent < Button > ().onClick.AddListener(() => loadLevels("Level" + button.LevelText.text)); //loads a level based on the name that the scene has been saved as
 
-//			if (PlayerPrefs.GetInt("Level" + button.LevelText.text + "_score") > 0) {
-//				button.star1.SetActive(true);
-//			}
-//
-//			if (PlayerPrefs.GetInt("Level" + button.LevelText.text + "_score") > 5000) {
-//				button.star2.SetActive(true);
-//			}
-//
-//			if (PlayerPrefs.GetInt("Level" + button.LevelText.text + "_score") > 9999) {
-//				button.star3.SetActive(true);
-//			}
+			if (PlayerPrefs.GetInt("Level" + button.LevelText.text + "_score") > 0) {
+				button.star1.SetActive(true);
+			}
+
+			if (PlayerPrefs.GetInt("Level" + button.LevelText.text + "_score") > 5000) {
+				button.star2.SetActive(true);
+			}
+
+			if (PlayerPrefs.GetInt("Level" + button.LevelText.text + "_score") > 9999) {
+				button.star3.SetActive(true);
+			}
 
 			newbutton.transform.SetParent(Spacer, false);
 		}
