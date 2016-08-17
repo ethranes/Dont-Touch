@@ -28,6 +28,9 @@ public class Level1_5: MonoBehaviour {
 	[SerializeField] 
 	private Text countdownTimer;
 
+
+//	public static bool fromGame = false;
+
 	void Start() {
 		//PlayerPrefs.SetInt("Level2", 1);
 		CheckCurrentLevel();
@@ -84,7 +87,14 @@ public class Level1_5: MonoBehaviour {
 			PlayerPrefs.SetInt("Level2", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			PlayerPrefs.SetInt("Level1.5_score", score);//This will set the score to the int that is declared above (only run when answer is correct)
 			Debug.Log("Correct");		
+			//SceneManager.LoadScene("sceneSelectBeta");
+			DontDestroyOnLoad(gameObject);
 			SceneManager.LoadScene("sceneSelectBeta");
+			GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag ("Level2Block");
+			foreach(GameObject go in gameObjectArray) {
+				go.SetActive (false);
+			}
+			DestroyObject(gameObject);
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -99,7 +109,14 @@ public class Level1_5: MonoBehaviour {
 			PlayerPrefs.SetInt("Level2", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			PlayerPrefs.SetInt("Level1.5_score", score);//This will set the score to the int that is declared above
 			Debug.Log("Correct");
+			//SceneManager.LoadScene("sceneSelectBeta");
+			DontDestroyOnLoad(gameObject);
 			SceneManager.LoadScene("sceneSelectBeta");
+			GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag ("Level2Block");
+			foreach(GameObject go in gameObjectArray) {
+				go.SetActive (false);
+			}
+			DestroyObject(gameObject);
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong

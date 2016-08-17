@@ -18,9 +18,20 @@ public class LevelManagerNew: MonoBehaviour {
 	public Transform Spacer;
 	public List < Level > LevelList;
 
+	//Level1_5.fromGame = true;
+
 
 	// Use this for initialization
 	void Start() {
+
+//		GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag ("Level2Block");
+//
+//		foreach(GameObject go in gameObjectArray)
+//		{
+//			go.SetActive (!Level1_5.fromGame);
+//		}
+
+
 		//DeleteAll ();
 		FillList();
 	}
@@ -78,4 +89,5 @@ public class LevelManagerNew: MonoBehaviour {
 	void loadLevels(string value) {
 		SceneManager.LoadScene(value);
 	}
+
 }
