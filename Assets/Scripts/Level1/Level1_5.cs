@@ -32,6 +32,21 @@ public class Level1_5: MonoBehaviour {
 //	public static bool fromGame = false;
 
 	void Start() {
+
+		DontDestroyOnLoad(gameObject);
+		//SceneManager.LoadScene("sceneSelectBeta");
+//		GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag("Level2Block");
+//		bool[] isActive = new bool[gameObjectArray.Length];
+//		foreach (GameObject go in gameObjectArray)
+//		{
+//			go.SetActive(false);
+//			isActive[i] = false;
+//		}
+//		PlayerPrefsX.SetBoolArray("Level2Block", isActive);
+//		DestroyObject(gameObject);
+
+//		PlayerPrefs.SetInt(go.Name, 0);
+
 		//PlayerPrefs.SetInt("Level2", 1);
 		CheckCurrentLevel();
 
@@ -55,6 +70,8 @@ public class Level1_5: MonoBehaviour {
 			}
 		}
 	}
+
+
 
 	void SaveMyGame() {
 		int NextLevel = CurrentLevel + 1;
@@ -84,17 +101,40 @@ public class Level1_5: MonoBehaviour {
 	public void UserSelectTrue() {		
 		//animator.SetTrigger("True");
 		if (currentQuestion.isTrue) {
+
+//			GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag("Level2Block");
+//			foreach (GameObject go in gameObjectArray)
+//			{
+//				go.SetActive(PlayerPrefsX.GetBoolArray("Level2Block")[i]);
+//			}
+
+
 			PlayerPrefs.SetInt("Level2", 1);//This is set on the last scene of each level to ensure that if the player choses the correct answer it unlocks the level level, this is linked with LevelManagerNew.cs
 			PlayerPrefs.SetInt("Level1.5_score", score);//This will set the score to the int that is declared above (only run when answer is correct)
 			Debug.Log("Correct");		
-			//SceneManager.LoadScene("sceneSelectBeta");
-			DontDestroyOnLoad(gameObject);
 			SceneManager.LoadScene("sceneSelectBeta");
-			GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag ("Level2Block");
-			foreach(GameObject go in gameObjectArray) {
-				go.SetActive (false);
-			}
-			DestroyObject(gameObject);
+
+
+//			DontDestroyOnLoad(gameObject);
+//			SceneManager.LoadScene("sceneSelectBeta");
+//			GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag("Level2Block");
+//			bool[] isActive = new bool[gameObjectArray.Length];
+//			foreach (GameObject go in gameObjectArray)
+//			{
+//				go.SetActive(false);
+//				isActive[i] = false;
+//			}
+//			PlayerPrefs.SetBoolArray("Level2Block", isActive);
+//			DestroyObject(gameObject);
+
+
+//			foreach(GameObject go in gameObjectArray) {
+//				bool active = PlayerPrefs.GetInt(go.Name) == 1;
+//				go.SetActive (active);
+//			}
+
+
+
 		} else {
 			Debug.Log("Wrong!");
 			SceneManager.LoadScene("Lose"); //This makes sure that the scene will switch to the Lose scene if the player gets the question wrong
@@ -126,6 +166,14 @@ public class Level1_5: MonoBehaviour {
 	}
 
 	void Update (){
+
+
+//		GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag("Level2Block");
+//		foreach (GameObject go in gameObjectArray)
+//		{
+//			go.SetActive(PlayerPrefsX.GetBoolArray("Level2Block")[i]);
+//		}
+
 
 		countdownTimer.text = GlobalCountDown.TimeLeft.Seconds.ToString();
 		{
